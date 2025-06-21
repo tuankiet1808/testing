@@ -1,22 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
+
+import './index.css';
 import './App.css';
 
+let cong = (a,b)=>{
+  return a + b;
+
+}
+let nhan = (a,b)=> a*b;
+let kq = cong(1,6);
+let kq2 = nhan(2,3);
+console.log("Kết quả của phép nhân là: ", kq2);
+console.log("Kết quả của phép cộng là: ", kq);
+let hovaten = ( a, b) => {
+  return `xin chao ${a}\ntuổi của bạn là: ${b}`;
+}
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Welcome to My React App</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {hovaten("Nguyen Van A", 20)}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        
       </header>
     </div>
   );
