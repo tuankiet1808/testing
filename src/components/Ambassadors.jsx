@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Splide from '@splidejs/splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 import './Ambassadors.css';
+
 import nguyenthanhnam from '../assets/nguyenthanhnam.jpg';
 import tranvanhuy from '../assets/tranvanhuy.jpeg';
 import phanhieudinh from '../assets/phanhieudinh.jpg';
@@ -26,18 +29,46 @@ const ambassadors = [
 ];
 
 const Ambassadors = () => {
+  useEffect(() => {
+    new Splide('.splide.ambassador-slider', {
+      type: 'slide',
+      perPage: 3,
+      perMove: 1,
+      gap: '24px',
+      arrows: false,
+      pagination: true,
+      autoplay: true,
+      interval: 3000,
+      pauseOnHover: false,
+      resetProgress: false,
+      rewind: true,
+      breakpoints: {
+        1024: { perPage: 2 },
+        768: { perPage: 1, padding: '1rem' },
+      },
+    }).mount();
+  }, []);
+
   return (
     <section className="ambassadors" id="ambassadors">
       <h2>Đại sứ thương hiệu</h2>
-      <div className="ambassador-list">
-        {ambassadors.map((amb, index) => (
-          <div className="ambassador-card" key={index}>
-            <img src={amb.image} alt={amb.name} />
-            <h3>{amb.name}</h3>
-            <p className="title">{amb.title}</p>
-            <p className="quote">❝ {amb.quote} ❞</p>
+      <div className="ambassadors-wrapper">
+        <div className="splide ambassador-slider">
+          <div className="splide__track">
+            <ul className="splide__list">
+              {ambassadors.map((amb, index) => (
+                <li className="splide__slide" key={index}>
+                  <div className="ambassador-card">
+                    <img src={amb.image} alt={amb.name} />
+                    <h3>{amb.name}</h3>
+                    <p className="title">{amb.title}</p>
+                    <p className="quote">❝ {amb.quote} ❞</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

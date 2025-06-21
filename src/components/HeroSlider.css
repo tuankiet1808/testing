@@ -68,18 +68,28 @@
 }
 
 .hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 16 / 9; /* giữ tỷ lệ khung ảnh đều nhau */
+  overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* giúp ảnh vừa khung mà không bị méo */
+  border-radius: 12px;
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+
+.hero-image img[src] {
+  opacity: 1;
+}
+
+
 
 @media (max-width: 768px) {
   .hero-v2 {

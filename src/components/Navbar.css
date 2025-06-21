@@ -116,6 +116,9 @@
   .navbar__logo {
     margin-left: 0;
   }
+  .navbar__logo img {
+    width: 46px; /* nhỏ hơn 60px mặc định */
+  }
 }
 
 /* ---------------- PC ---------------- */
@@ -142,4 +145,7 @@
   .navbar__menu {
     margin-right: 100px;
   }
+}
+html {
+  scroll-behavior: smooth;
 }

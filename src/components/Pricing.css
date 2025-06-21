@@ -17,7 +17,7 @@
   display: block;
   width: 60px;
   height: 4px;
-  background-color: #ff9f1c;
+  background-color: #3d71f6;
   margin: 12px auto 0;
   border-radius: 4px;
 }
@@ -56,7 +56,7 @@
 .price {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #ff9f1c;
+  color: #3d71f6;
   margin: 10px 0 24px;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .pricing-btn {
-  background-color: #ff9f1c;
+  background-color: #3d71f6;
   color: white;
   padding: 14px 28px;
   border-radius: 10px;
@@ -95,5 +95,5 @@
 }
 
 .pricing-btn:hover {
-  background-color: #e88b00;
+  background-color: #1b05bd;
 }

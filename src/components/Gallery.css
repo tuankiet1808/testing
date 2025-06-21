@@ -2,73 +2,116 @@
   padding: 60px 20px;
   background: #fff;
   text-align: center;
+  overflow: hidden;
 }
+
 .gallery h2 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #1f1f1f;
-  margin-bottom: 40px;
-  position: relative;
+  margin-bottom: 12px;
 }
-.gallery-grid {
-  display: flex;
-  overflow-x: auto;
-  gap: 16px;
-  padding: 10px 0; /* bỏ padding ngang */
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+
+.gallery .sub {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.gallery-wrapper {
+  width: 100vw;
   margin: 0 auto;
-  max-width: 100%;
+  overflow: hidden;
 }
 
-.gallery-grid::-webkit-scrollbar {
-  display: none;
+.splide {
+  width: 100%;
+  margin: 0 auto;
 }
 
+.splide__track {
+  padding: 0 !important;
+  margin-right: 20px !important;
+  overflow: visible;
+}
+
+.splide__slide {
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+}
 
 .gallery-item {
-  flex: 0 0 calc(33.333% - 20px); /* 3 ảnh mỗi lần hiển thị */
-  scroll-snap-align: start;
+  width: 95%;
+  height: 95%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  display: block;
+  border-radius: 16px;
 }
 
-.gallery-item:hover img {
-  transform: scale(1.05);
+/* Dot (pagination) style */
+.splide__pagination {
+  margin-top: 20px;
 }
 
-/* Ẩn thanh cuộn ngang (optional) */
-.gallery-grid::-webkit-scrollbar {
-  display: none;
-}
-.gallery-grid {
-  scrollbar-width: none;
-}
-.gallery-item {
-  flex: 0 0 90%; /* Mặc định mobile full gần hết màn */
-  max-width: 300px;
+.splide__pagination__page {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 3px;
+  transition: background 0.3s;
 }
 
-@media (min-width: 576px) {
+.splide__pagination__page.is-active {
+  background: #007bff;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 40px 10px;
+  }
+
+  .gallery h2 {
+    font-size: 1.8rem;
+  }
+
+  .gallery .sub {
+    font-size: 0.95rem;
+    padding: 0 10px;
+    line-height: 1.4;
+  }
+
   .gallery-item {
-    flex: 0 0 45%; /* Tablet: 2 ảnh mỗi lần */
+    max-width: 100%;
+    padding: 0;
+    border-radius: 12px;
+  }
+
+  .splide__pagination {
+    margin-top: 12px;
+  }
+
+  .splide__pagination__page {
+    width: 10px;
+    height: 10px;
   }
 }
-
-@media (min-width: 768px) {
-  .gallery-item {
-    flex: 0 0 calc(60% - 20px); /* từ 50% → 60% để ảnh to hơn */
-    max-width: 480px;           /* tăng giới hạn chiều rộng ảnh */
-  }
-}
-
 

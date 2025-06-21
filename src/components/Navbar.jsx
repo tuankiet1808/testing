@@ -38,11 +38,11 @@ const Navbar = () => {
 
       <nav className={`navbar__menu ${isOpen ? 'open' : ''}`}>
         <ul>
-          <li><a href="#intro" onClick={closeMenu}>Giới thiệu</a></li>
-          <li><a href="#features" onClick={closeMenu}>Tính năng</a></li>
+          <li><a href="#heroslider" onClick={closeMenu}>Giới thiệu</a></li>
           <li><a href="#gallery" onClick={closeMenu}>Hình ảnh</a></li>
-          <li><a href="#partners" onClick={closeMenu}>Đối tác</a></li>
+          <li><a href="#partners" onClick={closeMenu}>Khách hàng</a></li>
           <li><a href="#ambassadors" onClick={closeMenu}>Đại sứ</a></li>
+          <li><a href="#features" onClick={closeMenu}>Tính năng</a></li>
           <li><a href="#pricing" onClick={closeMenu}>Bảng giá</a></li>
           <li><a href="#contact" onClick={closeMenu}>Liên hệ</a></li>
         </ul>

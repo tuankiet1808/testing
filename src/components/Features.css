@@ -1,49 +1,175 @@
-.features {
-  padding: 60px 20px;
-  background: #f7f7f7;
-  text-align: center;
+.accordion-section {
+  max-width: 90%;        /* Làm rộng ra */
+  margin: 60px auto;
+  padding: 0 30px;          /* Cách đều hai bên 30px */
 }
 
-.features h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
+.accordion-item {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button {
+  width: 100%;
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: left;
+  background: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #007bff;
+}
+
+.accordion-button:hover {
+  background: #f1f1f1;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
   color: #333;
+  font-size: 0.95rem;
+  transition: all 0.8s ease;
+ 
 }
 
-.features-list {
+.accordion-content.open {
+  max-height: max-content; /* đủ lớn để chứa nội dung dài */
+  padding: 16px 20px;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.arrow.open {
+  transform: rotate(90deg);
+}
+/*----------------------------------------------------------------------------------*/
+.features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  justify-items: center;
+  grid-template-columns: repeat(2, 1fr); /* 2 cột cố định */
+  gap: 32px;
+  margin-top: 20px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* 1 cột cho mobile */
+  }
 }
 
 .feature-card {
-  background: white;
-  padding: 30px 20px;
+  background: #ffffff;
+  padding: 24px;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  max-width: 320px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  text-align: left;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: auto;  /* đảm bảo chiều cao tự động theo nội dung */
+  overflow: visible;  /* không ẩn nội dung tràn */
 }
+
 
 .feature-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
 }
 
-.icon {
-  font-size: 2.5rem;
-  color: #ff9f1c;
-  margin-bottom: 15px;
+.feature-image {
+  width: 100%;
+  height: auto;  /* bỏ cố định chiều cao */
+  object-fit: contain;  /* hiển thị toàn bộ ảnh */
+  border-radius: 12px;
+  margin-bottom: 16px;
 }
 
-.feature-card h3 {
-  font-size: 1.2rem;
-  color: #1f1f1f;
+
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #007bff;
   margin-bottom: 10px;
 }
 
-.feature-card p {
+.feature-desc ul {
+  padding-left: 20px;
+  color: #444;
   font-size: 0.95rem;
-  color: #555;
-  line-height: 1.4;
+  line-height: 1.6;
+}
+
+.feature-desc p {
+  margin-bottom: 8px;
+  color: #333;
+}
+/*----------------------------------------------------------------------------------*/
+.accordion-content ul {
+  padding-left: 20px;
+  font-size: 1.05rem; /* tăng cỡ chữ */
+  line-height: 1.8;   /* tăng khoảng cách dòng */
+  color: #222;        /* đậm hơn */
+}
+
+.accordion-content li {
+  margin-bottom: 10px;
+}
+
+/*----------------------------------------------------------------------------------*/
+.testimonial {
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  padding: 30px 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #333;
+  position: relative;
+}
+
+.testimonial::before {
+  content: '“';
+  font-size: 4rem;
+  color: #007bff;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  opacity: 0.15;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.customer-info img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+}
+
+.customer-info div {
+  font-size: 0.95rem;
+  color: #444;
 }
