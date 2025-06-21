@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import Splide from '@splidejs/splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 import './HeroSlider.css';
 
 import img1 from '../assets/scoreboard.png';
@@ -15,14 +17,21 @@ import img10 from '../assets/img4.png';
 const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
 const HeroSlider = () => {
-  const [index, setIndex] = useState(0);
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // đổi mỗi 3s
+    const splide = new Splide('.hero-slider-splide', {
+      type: 'loop',
+      perPage: 1,
+      autoplay: true,
+      interval: 3000,
+      pauseOnHover: false,
+      arrows: false,
+      pagination: true,
+      drag: true,
+    });
 
-    return () => clearInterval(timer); // cleanup khi unmount
+    splide.mount();
+
+    return () => splide.destroy();
   }, []);
 
   return (
@@ -41,8 +50,20 @@ const HeroSlider = () => {
         </div>
       </div>
 
-      <div className="hero-image fade">
-        <img src={images[index]} alt={`Arena Scoreboard ${index + 1}`} />
+      <div className="hero-slider-wrapper">
+        <div className="splide hero-slider-splide">
+          <div className="splide__track">
+            <ul className="splide__list">
+              {images.map((img, index) => (
+                <li className="splide__slide" key={index}>
+                  <div className="hero-slide-item">
+                    <img src={img} alt={`slide-${index}`} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
