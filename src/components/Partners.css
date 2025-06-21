@@ -1,0 +1,86 @@
+.partners {
+  padding: 30px 10px;
+  background-color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partners h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin-bottom: 40px;
+  position: relative;;
+}
+
+.partners .sub {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.partner-logos {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  scroll-padding-left: 20px;
+  scroll-padding-right: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.partner-logos::-webkit-scrollbar {
+  display: none;
+}
+
+.partner-card {
+  flex: 0 0 200px; /* 5 ảnh nếu container đủ rộng */
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.partner-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  filter: none;
+}
+
+.partner-card p {
+  font-size: 0.95rem;
+  color: #444;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive fallback cho mobile */
+@media (max-width: 768px) {
+  .partner-card {
+    flex: 0 0 70%;
+  }
+
+  .partner-card img {
+    width: 120px;
+    height: 120px;
+  }
+}
+@media (min-width: 1024px) {
+  .partner-card img {
+    width: 250px;
+    height: 250px;
+  }
+}

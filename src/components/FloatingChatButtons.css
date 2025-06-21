@@ -1,0 +1,48 @@
+.floating-buttons {
+  position: fixed;
+  bottom: 90px;
+  right: 20px; /* Mặc định cho mobile */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 999;
+}
+
+.chat-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
+}
+
+.messenger {
+  background-color: #0084ff;
+}
+
+.zalo {
+  background-color: #0068ff;
+}
+
+/* 👉 Dịch nút sang trái 40px khi trên PC */
+@media (min-width: 768px) {
+  .floating-buttons {
+    right: 60px;
+  }
+
+  .chat-button {
+    width: 64px;
+    height: 64px;
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,145 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: #0b0b0b;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: top 0.3s ease; /* chuyển động mượt */
+}
+
+/* Hiển thị hoặc ẩn navbar */
+.navbar.visible {
+  top: 0;
+}
+
+.navbar.hidden {
+  top: -100px;
+}
+
+/* Logo */
+.navbar__logo img {
+  width: 60px;
+  height: auto;
+}
+
+/* Menu mặc định */
+.navbar__menu ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__menu ul li a {
+  text-decoration: none;
+  color: #f6f6f6;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar__menu ul li a:hover {
+  color: #007bff;
+}
+
+/* Toggle Button (ẩn trên PC) */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.navbar__toggle .bar {
+  width: 24px;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+  .navbar {
+    position: sticky;
+  }
+
+  .navbar__menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    background-color: #000;
+    padding: 20px 0;
+    z-index: 999;
+  }
+
+  .navbar__menu.open {
+    display: block;
+  }
+
+  .navbar__menu ul {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 14px;
+  }
+
+  .navbar__menu ul li a {
+    color: white;
+    font-weight: 600;
+  }
+
+  .navbar__toggle {
+    display: flex;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    z-index: 1001;
+  }
+
+  .navbar__toggle .bar.open:nth-child(1) {
+    transform: rotate(45deg) translateY(6px);
+  }
+
+  .navbar__toggle .bar.open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar__toggle .bar.open:nth-child(3) {
+    transform: rotate(-45deg) translateY(-6px);
+  }
+
+  .navbar__logo {
+    margin-left: 0;
+  }
+}
+
+/* ---------------- PC ---------------- */
+@media (min-width: 769px) {
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__menu {
+    display: block !important;
+    position: static;
+    background: none;
+    padding: 0;
+  }
+
+  .navbar__menu ul {
+    flex-direction: row;
+  }
+
+  .navbar__logo {
+    margin-left: 60px;
+  }
+
+  .navbar__menu {
+    margin-right: 100px;
+  }
+}
