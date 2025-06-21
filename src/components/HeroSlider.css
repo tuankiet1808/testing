@@ -69,7 +69,7 @@
 
 .hero-image {
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   aspect-ratio: 16 / 9; /* giữ tỷ lệ khung ảnh đều nhau */
   overflow: hidden;
   border-radius: 12px;
@@ -107,17 +107,24 @@
 }
 .hero-slider-wrapper {
   width: 100%;
-  max-width: 800px;
-  aspect-ratio: 16/9;
-  border-radius: 12px;
+  max-width: 700px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-slider-wrapper .splide,
+.hero-slider-wrapper .splide__track,
+.hero-slider-wrapper .splide__list,
+.hero-slider-wrapper .splide__slide,
+.hero-slide-item {
+  height: 100%;
 }
 
 .hero-slide-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   border-radius: 12px;
 }
