@@ -75,7 +75,7 @@ html {
 }
 
 /* ===== MOBILE & TABLET (<= 1024px) ===== */
-@media (max-width: 1024px) {
+@media (max-width: 1367px) {
   .navbar__menu {
     display: none;
     position: absolute;
@@ -120,7 +120,7 @@ html {
 }
 
 /* ===== DESKTOP ONLY (>= 1025px) ===== */
-@media (min-width: 1025px) {
+@media (min-width: 1368px) {
   .navbar__toggle {
     display: none;
   }

@@ -14,30 +14,30 @@ const images = [img1, img2, img3, img4, img5, img6];
 
 const Gallery = () => {
   useEffect(() => {
-  const splide = new Splide('.splide', {
-    type: 'slide',
-    perPage: 3,
-    perMove: 1,
-    gap: '16px',
-    arrows: false,
-    pagination: true,
-    autoplay: true,
-    interval: 3000,
-    pauseOnHover: false,
-    resetProgress: false,
-    rewind: true,
-    padding: '1rem',
-    breakpoints: {
-      1024: {
-        perPage: 2,
-        padding: '1rem',
+    const splide = new Splide('.splide', {
+      type: 'slide',
+      perPage: 3,
+      perMove: 1,
+      gap: '16px',
+      arrows: false,
+      pagination: true,
+      autoplay: true,
+      interval: 3000,
+      pauseOnHover: false,
+      resetProgress: false,
+      rewind: true,
+      padding: '1rem',
+      breakpoints: {
+        1024: {
+          perPage: 2,
+          padding: '1rem',
+        },
+        768: {
+          perPage: 1,
+          padding: '1.5rem',
+        },
       },
-      768: {
-        perPage: 1,
-        padding: '1.5rem',
-      },
-    },
-  });
+    });
 
   splide.mount();
 
