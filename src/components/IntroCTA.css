@@ -1,19 +1,19 @@
 .intro-benefits {
-  width: 100vw;
-  min-height: 100vh; /* Chiếm full chiều cao màn hình */
+  width: 100%;
+  min-height: 100vh;
   background-color: #f7f7f7;
   padding: 60px 20px;
   text-align: center;
   overflow-x: hidden;
   display: flex;
-  align-items: center; /* Căn giữa theo chiều dọc */
+  align-items: center;
 }
 
 .intro-benefits-container {
   width: 100%;
-  max-width: 1500px; /* hoặc 1200px tùy layout tổng thể */
+  max-width: 1500px; /* thu gọn từ 1500px xuống */
   margin: 0 auto;
-  padding: 0 20px; /* thêm padding để tránh dính lề */
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
@@ -29,19 +29,21 @@
 
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   justify-items: center;
   margin-bottom: 40px;
 }
 
 .benefit-card {
+  width: 100%;
   background: white;
-  padding: 30px 20px;
+  padding: 40px 30px;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
   max-width: 320px;
+  box-sizing: border-box;
 }
 
 .benefit-card:hover {
@@ -81,12 +83,55 @@
 .cta-button:hover {
   background-color: #1b05bd;
 }
-@media (max-width: 768px) {
-  .partner-card {
-    flex: 0 0 80%;
-    max-width: 80%;
+
+/*----------------------------------------- Tablet (1024px - 1366px) -----------------------------*/
+@media (max-width: 1366px) {
+  .intro-benefits {
+    padding: 24px 12px; /* Giảm thêm padding cho tablet */
+    min-height: unset; /* Bỏ min-height: 100vh */
+    flex-direction: column;
+  }
+
+  .intro-benefits-container {
+    max-width: 880px; /* nhỏ hơn nữa cho vừa tablet */
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .benefit-card {
+    padding: 24px 16px; /* Nhỏ hơn desktop */
+    max-width: 100%;
+  }
+
+  .intro-benefits h2 {
+    font-size: 1.6rem; /* Gọn hơn trên tablet */
+    margin-bottom: 24px;
+  }
+
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
   }
 }
+
+/*----------------------------------------- Mobile (dưới 640px) -----------------------------*/
+@media (max-width: 640px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-benefits {
+    padding: 20px 12px;
+  }
+
+  .benefit-card {
+    max-width: 100%;
+  }
+}
+
 *,
 *::before,
 *::after {

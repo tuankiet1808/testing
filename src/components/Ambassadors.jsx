@@ -30,23 +30,24 @@ const ambassadors = [
 
 const Ambassadors = () => {
   useEffect(() => {
-    new Splide('.splide.ambassador-slider', {
-      type: 'slide',
-      perPage: 3,
-      perMove: 1,
-      gap: '24px',
-      arrows: false,
-      pagination: true,
-      autoplay: true,
-      interval: 3000,
-      pauseOnHover: false,
-      resetProgress: false,
-      rewind: true,
-      breakpoints: {
-        1024: { perPage: 2 },
-        768: { perPage: 1, padding: '1rem' },
-      },
-    }).mount();
+  new Splide('.splide.ambassador-slider', {
+    type: 'slide',
+    perPage: 3,
+    perMove: 1,
+    gap: '20px', // ❗ bỏ gap để không bị dư chiều rộng
+    arrows: false,
+    pagination: true,
+    autoplay: true,
+    interval: 3000,
+    pauseOnHover: false,
+    resetProgress: false,
+    rewind: true,
+    breakpoints: {
+      1024: { perPage: 2, gap: '16px' }, // vẫn giữ khoảng cách ở tablet
+      768: { perPage: 1, padding: '1rem' },
+    },
+  }).mount();
+
   }, []);
 
   return (

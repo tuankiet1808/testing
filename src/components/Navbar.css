@@ -8,25 +8,23 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: top 0.3s ease; /* chuyển động mượt */
+  transition: top 0.3s ease;
 }
 
-/* Hiển thị hoặc ẩn navbar */
 .navbar.visible {
   top: 0;
+  max-width: 100%;
 }
 
 .navbar.hidden {
   top: -100px;
 }
 
-/* Logo */
 .navbar__logo img {
   width: 60px;
   height: auto;
 }
 
-/* Menu mặc định */
 .navbar__menu ul {
   display: flex;
   list-style: none;
@@ -46,7 +44,6 @@
   color: #007bff;
 }
 
-/* Toggle Button (ẩn trên PC) */
 .navbar__toggle {
   display: none;
   flex-direction: column;
@@ -61,12 +58,24 @@
   transition: all 0.3s ease;
 }
 
-/* ---------------- MOBILE ---------------- */
-@media (max-width: 768px) {
-  .navbar {
-    position: sticky;
-  }
+.navbar__toggle .bar.open:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
 
+.navbar__toggle .bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle .bar.open:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== MOBILE & TABLET (<= 1024px) ===== */
+@media (max-width: 1024px) {
   .navbar__menu {
     display: none;
     position: absolute;
@@ -101,28 +110,17 @@
     z-index: 1001;
   }
 
-  .navbar__toggle .bar.open:nth-child(1) {
-    transform: rotate(45deg) translateY(6px);
-  }
-
-  .navbar__toggle .bar.open:nth-child(2) {
-    opacity: 0;
-  }
-
-  .navbar__toggle .bar.open:nth-child(3) {
-    transform: rotate(-45deg) translateY(-6px);
-  }
-
   .navbar__logo {
     margin-left: 0;
   }
+
   .navbar__logo img {
-    width: 46px; /* nhỏ hơn 60px mặc định */
+    width: 46px;
   }
 }
 
-/* ---------------- PC ---------------- */
-@media (min-width: 769px) {
+/* ===== DESKTOP ONLY (>= 1025px) ===== */
+@media (min-width: 1025px) {
   .navbar__toggle {
     display: none;
   }
@@ -145,7 +143,4 @@
   .navbar__menu {
     margin-right: 100px;
   }
-}
-html {
-  scroll-behavior: smooth;
 }
