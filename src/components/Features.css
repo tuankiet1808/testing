@@ -1,7 +1,9 @@
 .accordion-section {
   max-width: 90%;        /* Làm rộng ra */
   margin: 60px auto;
-  padding: 0 30px;          /* Cách đều hai bên 30px */
+  padding-top: 80px;
+  padding-left: 30px;
+  padding-right: 30px;        /* Cách đều hai bên 30px */
 }
 
 .accordion-item {
@@ -51,6 +53,7 @@
 
 .arrow {
   display: inline-block;
+  font-size: 2.2rem;
   transition: transform 0.2s ease;
 }
 
@@ -69,8 +72,23 @@
 }
 
 @media (max-width: 768px) {
+  .accordion-section {
+    max-width: 90%;        /* Làm rộng ra */
+    margin: 60px auto;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;        /* Cách đều hai bên 30px */
+  }
   .features-grid {
     grid-template-columns: 1fr; /* 1 cột cho mobile */
+  }
+  .accordion-button {
+    font-size: 1rem; /* hoặc 0.95rem nếu muốn nhỏ hơn nữa */
+    padding: 16px 24px; /* giảm padding nhẹ nếu muốn gọn */
+  }
+
+  .accordion-content {
+    font-size: 1rem;
   }
 }
 

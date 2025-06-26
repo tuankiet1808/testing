@@ -4,51 +4,91 @@ import logo from '../assets/logo_1.svg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [activeLink, setActiveLink] = useState('');
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  const handleClick = (id) => {
+    setActiveLink(id);
+    closeMenu();
+  };
+
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    const sectionIds = [
+      'heroslider',
+      'gallery',
+      'partners',
+      'ambassadors',
+      'features',
+      'pricing',
+      'contact'
+    ];
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setShowNavbar(false); // Scroll xuống
-      } else if (currentScrollY < lastScrollY) {
-        setShowNavbar(true); // Scroll lên
-      }
-
-      lastScrollY = currentScrollY;
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) observer.unobserve(section);
+      });
+    };
   }, []);
 
+  const navItems = [
+    { id: 'heroslider', label: 'Giới thiệu' },
+    { id: 'gallery', label: 'Hình ảnh' },
+    { id: 'partners', label: 'Khách hàng' },
+    { id: 'ambassadors', label: 'Đại sứ' },
+    { id: 'features', label: 'Tính năng' },
+    { id: 'pricing', label: 'Bảng giá' },
+    { id: 'contact', label: 'Liên hệ' }
+  ];
+
   return (
-    <header className={`navbar ${showNavbar ? 'visible' : 'hidden'}`}>
+    <header className="navbar">
       <div className="navbar__logo">
-        <a href="navbar">
+        <a href="#navbar">
           <img src={logo} alt="Arena Logo" className="navbar__logo-image" />
         </a>
       </div>
 
       <nav className={`navbar__menu ${isOpen ? 'open' : ''}`}>
         <ul>
-          <li><a href="#heroslider" onClick={closeMenu}>Giới thiệu</a></li>
-          <li><a href="#gallery" onClick={closeMenu}>Hình ảnh</a></li>
-          <li><a href="#partners" onClick={closeMenu}>Khách hàng</a></li>
-          <li><a href="#ambassadors" onClick={closeMenu}>Đại sứ</a></li>
-          <li><a href="#features" onClick={closeMenu}>Tính năng</a></li>
-          <li><a href="#pricing" onClick={closeMenu}>Bảng giá</a></li>
-          <li><a href="#contact" onClick={closeMenu}>Liên hệ</a></li>
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                onClick={() => handleClick(item.id)}
+                className={activeLink === item.id ? 'active' : ''}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
 
-      <div className="navbar__toggle" onClick={toggleMenu}>
+      <div className={`navbar__toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>
         <div className={`bar ${isOpen ? 'open' : ''}`}></div>

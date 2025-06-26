@@ -22,7 +22,7 @@ const partners = [
 const Partners = () => {
   useEffect(() => {
     new Splide('.splide.partners-slider', {
-      type: 'slide',
+      type: 'loop',
       perPage: 4,
       perMove: 1,
       gap: '16px',
@@ -32,7 +32,8 @@ const Partners = () => {
       interval: 3000,
       pauseOnHover: false,
       resetProgress: false,
-      rewind: true,
+      rewind: false,          // <-- tắt rewind vì không cần khi dùng loop
+      padding: '1rem',
       breakpoints: {
         1024: {
           perPage: 2,

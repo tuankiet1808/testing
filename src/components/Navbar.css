@@ -144,3 +144,8 @@ html {
     margin-right: 100px;
   }
 }
+.navbar__menu ul li a.active {
+  color: #007bff;
+  font-weight: 600;
+}
+

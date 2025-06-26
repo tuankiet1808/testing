@@ -15,7 +15,7 @@ const images = [img1, img2, img3, img4, img5, img6];
 const Gallery = () => {
   useEffect(() => {
     const splide = new Splide('.splide', {
-      type: 'slide',
+      type: 'loop',          // <-- sửa dòng này
       perPage: 3,
       perMove: 1,
       gap: '16px',
@@ -25,7 +25,7 @@ const Gallery = () => {
       interval: 3000,
       pauseOnHover: false,
       resetProgress: false,
-      rewind: true,
+      rewind: false,          // <-- tắt rewind vì không cần khi dùng loop
       padding: '1rem',
       breakpoints: {
         1024: {
@@ -38,6 +38,7 @@ const Gallery = () => {
         },
       },
     });
+
 
   splide.mount();
 

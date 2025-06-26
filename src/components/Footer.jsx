@@ -1,15 +1,14 @@
 import React from 'react';
 import './Footer.css';
 import { FaFacebookF, FaYoutube, FaTiktok, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
-import logo from '../assets/logo.png'; // Assuming you have a logo image
+//import logo from '../assets/logo.png'; // Assuming you have a logo image
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-col logo">
-          <img src={logo} alt="Arena Logo" style={{height:150, width:150}}/>
-          <p>ARENA<br />PLAY BETTER</p>
+          <img src="./Logo_trang_footer-01.svg" alt="Arena Logo" style={{height:150, width:150}}/>
         </div>
 
         <div className="footer-col">
